@@ -14,6 +14,8 @@
 
 1. 手动 -- 克隆仓库
 2. 手动 -- 本地写Markdown文件并自行控制文件之间的组织关系（链接引用、图片、目录等使用相对路径）
+3. 手动 -- 提交Markdown文件到GitHub
+4. 自动 -- Github Pages 会自动执行[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
 
  
 
