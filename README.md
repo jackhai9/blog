@@ -5,10 +5,10 @@
 ## 项目说明
 
 - 仓库名可以任意起。
-- 只有一个main分支，存放 Markdown 文件。当然可以创建其他分支。
-- 手动开启 Github Pages 功能：Settings --> Pages --> 选择分支名并保存。
+- 只有一个main分支，存放 Markdown 文件。当然可以使用其他分支。
+- 手动开启这个仓库的 Github Pages 功能：Settings --> Pages --> 选择分支名并保存。
 
-- GitHub Pages 会优先把 index.html 或 index.md 作为首页，如果没有这两个，就会以 README.md 作为首页。
+- GitHub Pages 会优先把仓库根目录的 index.html 或 index.md 作为首页，如果没有这两个，就会以 README.md 作为首页。
 
 ## 整体流程
 
@@ -19,4 +19,4 @@
 
  
 
-如果根目录下没有 index.html 文件，GitHub Pages 默认使用 [Jekyll](https://github.com/jekyll/jekyll) 这样的静态站点生成器，会把 index.md 或者 README.md 这样的 Markdown 文件转成 HTML ，用于浏览器解析和显示。截止目前2024年1月，Markdown 文件还不是浏览器原生支持的格式。
+如果根目录下没有 index.html 文件，GitHub Pages 默认使用 [Jekyll](https://github.com/jekyll/jekyll) 这样的静态站点生成器，把 index.md 或者 README.md 这样的 Markdown 文件转成 HTML ，用于浏览器解析和显示。截止目前2024年1月，Markdown 文件还不是浏览器原生支持渲染的格式。
