@@ -1,13 +1,12 @@
 # blog
 
-完全以 Markdown 文件的形式来书写和组织博客。**要做的只是写 Markdown**，相较而言[这个](https://github.com/jackhai9/jackhai9.github.io/tree/source)就有点复杂了。
+完全以 Markdown 文件的形式来书写和组织博客。**要做的只是写 Markdown**，[这个](https://github.com/jackhai9/jackhai9.github.io)就有点复杂了。
 
 ## 项目说明
 
 - 仓库名可以任意起。
 - 只有一个main分支，存放 Markdown 文件。当然可以使用其他分支。
 - 手动开启这个仓库的 Github Pages 功能：Settings --> Pages --> 选择分支名并保存。
-
 - GitHub Pages 会优先把仓库根目录的 index.html 或 index.md 作为首页，如果没有这两个，就会以 README.md 作为首页。
 
 ## 整体流程
