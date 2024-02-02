@@ -38,3 +38,23 @@
 通过SSH与GitHub进行免密交互，无需每次访问都使用用户名和密码，设置方式：
 
 [检查本地现有的SSH密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)、[生成本地新的SSH密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)、[添加本地SSH密钥到GitHub账户](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)。
+
+#### 添加favicon
+
+默认是没有favicon的，如果需要添加：
+
+1. 把你的favicon.ico放在根目录下，也就是跟index.md同一级目录。
+2. 新建_includes/head-custom.html，内容如下：把其中的"blog"替换成你自己的仓库名
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico">
+</head>
+<body>
+    
+</body>
+</html>
+```
+
