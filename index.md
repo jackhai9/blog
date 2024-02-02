@@ -1,11 +1,3 @@
-
-
-<link rel="icon" href="/blog/favicon.ico" type="image/x-icon">
-
-<link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon">
-
-
-
 这是新博客。
 
 > 之前的[老博客](https://jackhai9.github.io/)。
