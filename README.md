@@ -1,4 +1,4 @@
-# blog
+# 基于 Markdown + GitHub Pages
 
 完全以 Markdown 文件的形式来书写和组织博客。**要做的只是写 Markdown**，[这个](https://github.com/jackhai9/jackhai9.github.io)就有点复杂了。
 
