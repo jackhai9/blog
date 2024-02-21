@@ -47,22 +47,21 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 
 6. 设置了对匿名用户隐藏如下部分：
 
-* 隐藏工具栏Toolbox： skins/Vector/VectorTemplate.php
-
-  ```php
-  case 'TOOLBOX':
-  if ( $this->data['loggedin'] ) {
-      $this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
-  }
-  ```
-
-* 隐藏查看源码（View source）和查看历史（View history）： skins/Vector/VectorTemplate.php
-
-  ```php
-  if ( !($this->data['loggedin'])||count( $this->data['view_urls'] ) == 0 ) {
-      echo ' emptyPortlet';
-  }
-  ```
+     * 隐藏工具栏Toolbox： skins/Vector/VectorTemplate.php
+     
+       ```php
+       case 'TOOLBOX':
+       if ( $this->data['loggedin'] ) {
+           $this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
+       }
+       ```
+       
+     * 隐藏查看源码（View source）和查看历史（View history）： skins/Vector/VectorTemplate.php
+     
+       ```php
+       if ( !($this->data['loggedin'])||count( $this->data['view_urls'] ) == 0 ) {
+           echo ' emptyPortlet';
+       }
 
 7. 启用WikiEditor。MediaWiki自带的编辑器比较简单，用于页面编辑不太方便。从1.18版开始，MediaWiki中集成了一款增强型编辑器WikiEditor。
 
