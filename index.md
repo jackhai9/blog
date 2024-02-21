@@ -1,6 +1,6 @@
-这是新博客。
+此博客的[Github仓库](https://github.com/jackhai9/blog)
 
-> 之前的[老博客](https://jackhai9.github.io/)。
+> 之前的[老博客](https://jackhai9.github.io/)
 
 
 
@@ -25,4 +25,4 @@
 
 
 ## 关于我
-[about me]()
+[Github](https://github.com/jackhai9/)
