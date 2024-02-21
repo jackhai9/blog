@@ -76,10 +76,30 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
     $wgLocaltimezone="Asia/Shanghai";
     ```
 
-12. Mediawiki默认的搜索search不好用，尤其是不支持中文。安装了扩展 Extension:CirrusSearch [链接](https://www.mediawiki.org/wiki/Extension:CirrusSearch) [链接](https://github.com/wikimedia/mediawiki-extensions-CirrusSearch)  需要先手动安装以下依赖：Elastica，Composer，JDK8，Elasticsearch。【注意：php命令的路径为：/opt/lampp/bin/php】
-      JDK8安装路径：/usr/local/jdk1.8.0_191
-      Elasticsearch安装路径：/opt/elasticsearch-5.3.1，修改了启动脚本 ./bin/elasticsearch 里的 JAVA 变量：JAVA="/usr/local/jdk1.8.0_191/bin/java" ，指向JDK8
-      Elasticsearch通过-d参数在后台运行。curl localhost:9200  测试es安装启动没问题。注意：不要以root用户启动es，可以es用户来启动。目前对es还没监控进行自动重启，后续可以加上。
+12. Mediawiki默认的搜索search不好用，尤其是不支持中文。安装了扩展 Extension:CirrusSearch [链接](https://www.mediawiki.org/wiki/Extension:CirrusSearch) [链接](https://github.com/wikimedia/mediawiki-extensions-CirrusSearch)  
+    
+    需要先手动安装以下依赖：Elastica，Composer，JDK8，Elasticsearch。【注意：php命令的路径为：/opt/lampp/bin/php】
+    
+    > JDK8安装路径：/usr/local/jdk1.8.0_191
+    >
+    > Elasticsearch安装路径：/opt/elasticsearch-5.3.1，修改了启动脚本 ./bin/elasticsearch 里的 JAVA 变量：`JAVA="/usr/local/jdk1.8.0_191/bin/java"` ，指向JDK8
+    >
+    > Elasticsearch通过-d参数在后台运行。curl localhost:9200  测试es安装启动没问题。注意：不要以root用户启动es，可以es用户来启动。目前对es还没监控进行自动重启，后续可以加上。
+    
+13. 对外公开资料的目的：访问者不需要帐号就可以访问页面。访问者只能查看，不能修改。
+
+      <font color="red">需要在服务器上追加配置：</font>
+
+      wiki 服务器 ：172.20.XXX.XXX
+
+      /opt/lampp/htdocs/wiki/LocalSettings.php  的  $wgWhitelistRead 变量中 新增资料名字（页面名字）即可：
+
+      ```php
+      # 例如，公开页面 “金蝶电子合同API对接文档”，“页面1”，“File:压缩文件2.zip”，。。。
+      $wgWhitelistRead = array ("金蝶电子合同API对接文档","页面1","File:压缩文件2.zip");
+      ```
+
+      
 
 ## 常用命令
 
