@@ -62,6 +62,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
        if ( !($this->data['loggedin'])||count( $this->data['view_urls'] ) == 0 ) {
            echo ' emptyPortlet';
        }
+       ```
 
 7. 启用WikiEditor。MediaWiki自带的编辑器比较简单，用于页面编辑不太方便。从1.18版开始，MediaWiki中集成了一款增强型编辑器WikiEditor。
 
@@ -141,7 +142,7 @@ find /opt/elasticsearch-5.3.1/logs/ -type f -mtime +2 -exec rm {} \;
 
 ## 问题解决
 
-一。mysql数据库改密码：
+一、mysql数据库改密码：
 
 1. vim /opt/lampp/etc/my.cnf
 
@@ -160,7 +161,7 @@ find /opt/elasticsearch-5.3.1/logs/ -type f -mtime +2 -exec rm {} \;
 
 3. wiki配置文件LocalSettings.php里面的$wgDBpassword改为`mysql的root用户的密码`即可。
 
-二。遇到Apache启动失败的问题是因为默认的80端口被占用，解决办法：
+二、遇到Apache启动失败的问题是因为默认的80端口被占用，解决办法：
 
 1.  修改/opt/lampp/etc/httpd.conf里的端口 Listen 80(修改为8011）
 
@@ -168,7 +169,7 @@ find /opt/elasticsearch-5.3.1/logs/ -type f -mtime +2 -exec rm {} \;
 
 3.  /opt/lampp/lampp里的testport 80修改为testport 8011, testport 443修改为testport 1443
 
-三。遇到访问受ip限制：
+三、遇到访问受ip限制：
 
 vim /opt/lampp/etc/extra/httpd-xampp.conf
 
@@ -180,15 +181,15 @@ vim /opt/lampp/etc/extra/httpd-xampp.conf
     Allow from all
     Require all granted
 
-四。目前没有对es进行自动重启，服务器如果重启过之后，es需要手动重启下。
+四、目前没有对es进行自动重启，服务器如果重启过之后，es需要手动重启下。
 
 方法：不要以root用户启动es，以es用户来启动：su es。Elasticsearch通过-d参数在后台运行（cd /opt/elasticsearch-5.3.1）：./bin/elasticsearch -d。然后 curl localhost:9200  测试es安装启动没问题。
 
-五。页面下方出现如： <font color="red">/opt/lampp/htdocs/wiki/extensions/CirrusSearch/includes/Job/ElasticaWrite.php: Unsupported operand types Backtrace:</font> 的红色报错信息。
+五、页面下方出现如： <font color="red">/opt/lampp/htdocs/wiki/extensions/CirrusSearch/includes/Job/ElasticaWrite.php: Unsupported operand types Backtrace:</font> 的红色报错信息。
 
 解决方法：检查es是否启动。 并执行命令：php /opt/lampp/htdocs/wiki/maintenance/runJobs.php 。 刷新页面即可。
 
-六。搭建的lampp使用了默认的ftp账号密码，需要修改。
+六、搭建的lampp使用了默认的ftp账号密码，会有安全风险，需要修改。
 
 解决方法：修改/opt/lampp/etc/proftpd.conf中的ftp账号daemon后面的密码，需要是密码加密后的形式。因为没有ftpasswd命令，所以使用了：`echo -n 'ftp密码' | openssl passwd -crypt -stdin`
 
@@ -200,7 +201,7 @@ ftp的密码：ftp密码
 
 ftp的密码-加密之后：ftp密码加密之后的密码
 
-七。有时候数据库mysql重启会有问题，导致wiki页面访问报错：
+七、有时候数据库mysql重启会有问题，导致wiki页面访问报错：
 
 Sorry! This site is experiencing technical difficulties.
 Try waiting a few minutes and reloading.
