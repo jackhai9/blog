@@ -19,11 +19,9 @@
 
 1. 在最后安装Mediawiki的时候，因为远程服务器上没有桌面环境，也没有浏览器，所以无法通过本机windows上的浏览器直接ip访问来进行安装：ip是http://172.20.XXX.XXX/wiki ，到后面配置mysql时一直连不上数据库，估计跟ip访问有关 ：
 
-   解决方法：在远程服务器通过lynx来模拟浏览器，安装lynx，（yum install lynx），使用方法是：# lynx http://localhost/wiki/mw-config/index.php?page=Language  开始进行安装，最后也下载到了LocalSettings.php ；
+   解决方法：在远程服务器通过lynx来模拟浏览器，安装lynx，（yum install lynx），使用方法是：`# lynx http://localhost/wiki/mw-config/index.php?page=Language`  开始进行安装，最后也下载到了LocalSettings.php 。
 
-2. 把LocalSettings.php放到 /opt/lampp/htdocs/wiki目录下 ；
-
-3. 配置文件LocalSettings.php  最新完整版备份：[[File:LocalSettings.zip]] or 服务器上的最新完整版备份路径：/opt/lampp/htdocs/LocalSettings.php.bak
+2. 把LocalSettings.php放到 /opt/lampp/htdocs/wiki目录下 。最好备份下LocalSettings.php.bak，后续会修改此文件，防止改坏。
 
 ## 配置说明
 
