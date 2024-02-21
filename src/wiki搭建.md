@@ -46,6 +46,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 [现已定时备份](#数据库备份)
 
 6. 设置了对匿名用户隐藏如下部分：
+
 * 隐藏工具栏Toolbox： skins/Vector/VectorTemplate.php
 
   ```php
@@ -54,7 +55,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
       $this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
   }
   ```
-  
+
 * 隐藏查看源码（View source）和查看历史（View history）： skins/Vector/VectorTemplate.php
 
   ```php
@@ -190,7 +191,7 @@ vim /opt/lampp/etc/extra/httpd-xampp.conf
 
 六。搭建的lampp使用了默认的ftp账号密码，需要修改。
 
-解决方法：修改/opt/lampp/etc/proftpd.conf中的ftp账号daemon后面的密码，需要是密码加密后的形式。因为没有ftpasswd命令，所以使用了：echo -n 'ftp密码' | openssl passwd -crypt -stdin
+解决方法：修改/opt/lampp/etc/proftpd.conf中的ftp账号daemon后面的密码，需要是密码加密后的形式。因为没有ftpasswd命令，所以使用了：`echo -n 'ftp密码' | openssl passwd -crypt -stdin`
 
 最终：
 
