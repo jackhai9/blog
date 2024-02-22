@@ -1,10 +1,16 @@
-## 环境搭建
+# wiki搭建
+
+基于Mediawiki，在linux上搭建wiki。
+
+> 也可以使用其他的wiki软件，比如DokuWiki、XWiki等。
+
+## 环境
 
 1. 基于xampp来搭建Apache/Mysql/PHP环境，xampp版本为：xampp-linux-x64-7.1.9-0-installer.run ；
 
 2. Mediawiki的版本为：mediawiki-1.29.1.tar.gz ；
 
-## 安装过程
+## 过程
 
 参考：https://www.mediawiki.org/wiki/Manual:Installing_MediaWiki_on_XAMPP
 
@@ -14,7 +20,7 @@
 
 2. wiki的部署目录：/opt/lampp/htdocs/wiki
 
-## 注意事项
+## 注意
 
 
 1. 在最后安装Mediawiki的时候，因为远程服务器上没有桌面环境，也没有浏览器，所以无法通过本机windows上的浏览器直接ip访问来进行安装：ip是http://172.20.XXX.XXX/wiki ，到后面配置mysql时一直连不上数据库，估计跟ip访问有关 ：
@@ -23,7 +29,7 @@
 
 2. 把LocalSettings.php放到 /opt/lampp/htdocs/wiki目录下 。最好备份下LocalSettings.php.bak，后续会修改此文件，防止改坏。
 
-## 配置说明
+## 说明
 
 wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 
@@ -101,7 +107,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 
       
 
-## 常用命令
+## 命令
 
 
 1. `/opt/lampp/lampp start`
@@ -110,7 +116,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 
 3. `/opt/lampp/lampp restart`
 
-## 服务监控
+## 监控
 
 
 1. `crontab -e`
@@ -119,7 +125,7 @@ wiki部署服务器：172.20.XXX.XXX，端口321，用户YYY
 
 3. 日志：/var/log/cron.monitor.log
 
-## 数据库备份
+## 备份
 
 已经通过crontab定时备份wiki数据库： 
 
@@ -142,7 +148,7 @@ find /data/wiki_mysql_back/ -type f -mtime +1 -exec rm {} \;
 $ gunzip < /data/wiki_mysql_back/my_wiki_backup20180705.sql.gz | /opt/lampp/bin/mysql -uroot -p my_wiki
 ```
 
-## es日志定期删除
+## 删除
 
 已经通过crontab定期删除es日志： 
 
@@ -158,7 +164,7 @@ $ gunzip < /data/wiki_mysql_back/my_wiki_backup20180705.sql.gz | /opt/lampp/bin/
 find /opt/elasticsearch-5.3.1/logs/ -type f -mtime +2 -exec rm {} \;
 ```
 
-## 问题解决
+## 问题
 
 一、mysql数据库改密码：
 
