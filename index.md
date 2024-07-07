@@ -4,7 +4,7 @@
 
 ## 技术笔记
 
-[wiki搭建](src/wiki搭建.md) 知识库等信息共享。最著名的wiki例子就是[维基百科](https://www.wikipedia.org/)。
+[wiki搭建](src/wiki搭建.md) 知识库等信息共享。最著名的例子[维基百科](https://www.wikipedia.org/)。
 
 [第三方服务](src/第三方服务.md) 自己工作中接触到的一些第三方服务。
 
