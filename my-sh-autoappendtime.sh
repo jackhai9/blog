@@ -1,13 +1,13 @@
 #!/bin/bash
 
-FILE=$1
+FILE="$1"
 
 if [ -z "$FILE" ]; then
   echo "Usage: $0 <markdown-file>"
   exit 1
 fi
 
-if [[ "$FILE" != *.txt ]]; then
+if [[ "$FILE" != *.md ]]; then
   echo "This script only works with Markdown files (.md)."
   exit 1
 fi
