@@ -32,6 +32,6 @@ fi
 sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
 
 # 追加新的最后更新日期信息到文件末尾
-echo -e "\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
+printf "\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
 
 
