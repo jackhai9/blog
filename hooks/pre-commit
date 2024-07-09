@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### 在git commit之前执行一些自动化工作
+
 # 项目根目录的相对路径
 PROJECT_ROOT=$(git rev-parse --show-toplevel)
 
