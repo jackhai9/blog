@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# 项目根目录的相对路径
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+
+# 遍历每个Markdown文件
+IFS=$'\n'
+git diff --name-only --cached | grep '\.md$' | while read -r FILE; do
+  # 去除文件路径中的双引号
+  CLEANED_FILE=$(echo "$FILE" | sed 's/^"//' | sed 's/"$//')
+  # 将转义字符转换回原始字符，以防git没有设置"git config --global core.quotepath false"
+  DECODED_FILE=$(printf "%b" "$CLEANED_FILE")
+  # echo "Adding file: $DECODED_FILE"
+  "$PROJECT_ROOT/my-sh-autoappendtime.sh" "$DECODED_FILE"
+  git add "$DECODED_FILE"
+done
+unset IFS
+
