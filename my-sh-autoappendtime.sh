@@ -2,6 +2,8 @@
 
 FILE="$1"
 
+echo "Processing file: $FILE"
+
 if [ -z "$FILE" ]; then
   echo "Usage: $0 <markdown-file>"
   exit 1
