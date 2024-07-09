@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### 为每个md文件自动添加创建日期和最后更新日期
+
 FILE="$1"
 
 echo "Processing file: $FILE"
