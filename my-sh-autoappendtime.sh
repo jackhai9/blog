@@ -7,7 +7,9 @@ if [ -z "$FILE" ]; then
   exit 1
 fi
 
-if [[ "$FILE" != *.md ]]; then
+# 检查文件是否为 Markdown 文件
+EXT="${FILE##*.}"
+if [ "$EXT" != "md" ]; then
   echo "This script only works with Markdown files (.md)."
   exit 1
 fi
