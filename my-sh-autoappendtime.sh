@@ -29,7 +29,7 @@ LAST_UPDATE_DATE=$(git log -1 --format=%ad --date=short -- "$FILE")
 
 # 检查文件中是否已经有创建日期
 if ! grep -q "^> 本文创建日期:" "$FILE"; then
-  echo -e "\n> 本文创建日期: $CREATION_DATE" >> "$FILE"
+  echo -e "\n---\n> 本文创建日期: $CREATION_DATE" >> "$FILE"
 fi
 
 # 删除已有的最后更新日期信息
