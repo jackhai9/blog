@@ -45,7 +45,7 @@ sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
 sed -i '' -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$FILE"
 
 # 追加新的最后更新日期信息到文件末尾
-if [ -z "$LAST_UPDATE_DATE" ]; then
+if [ -n "$LAST_UPDATE_DATE" ]; then
   printf "> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
 fi
 
