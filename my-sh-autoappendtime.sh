@@ -31,7 +31,7 @@ if [ -z "$CREATION_DATE" ]; then
 fi
 
 # 获取git log中的最后提交日期
-LAST_UPDATE_DATE=$(git log -1 --format=%ad --date=short -- "$FILE")
+LAST_UPDATE_DATE=$(date +"%Y-%m-%d")
 
 # 检查文件中是否已经有创建日期
 if ! grep -q "^> 本文创建日期:" "$FILE"; then
