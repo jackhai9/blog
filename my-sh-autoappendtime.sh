@@ -23,14 +23,15 @@ if [ ! -f "$FILE" ]; then
   exit 1
 fi
 
-# 获取首次创建日期
+# 获取git log中的首次提交日期
 CREATION_DATE=$(git log --diff-filter=A --follow --format=%ad --date=short -1 -- "$FILE")
+# 如果没有提交过，说明是新建的文件
+if [ -z "$CREATION_DATE" ]; then
+  CREATION_DATE=$(date +"%Y-%m-%d")
+fi
 
-# 获取最后更新日期
+# 获取git log中的最后提交日期
 LAST_UPDATE_DATE=$(git log -1 --format=%ad --date=short -- "$FILE")
-
-echo "$CREATION_DATE"
-echo "$LAST_UPDATE_DATE"
 
 # 检查文件中是否已经有创建日期
 if ! grep -q "^> 本文创建日期:" "$FILE"; then
@@ -44,6 +45,7 @@ sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
 sed -i '' -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$FILE"
 
 # 追加新的最后更新日期信息到文件末尾
-printf "> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
-
+if [ -z "$LAST_UPDATE_DATE" ]; then
+  printf "> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
+fi
 
