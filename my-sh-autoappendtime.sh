@@ -39,7 +39,7 @@ if ! grep -q "^> 本文创建日期:" "$FILE"; then
 fi
 
 # 删除已有的最后更新日期信息
-sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
+#sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
 
 # 删除文件末尾的空行
 sed -i '' -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$FILE"
@@ -49,6 +49,14 @@ sed -i '' -e '${/^> $/d;}' "$FILE"
 
 # 追加新的最后更新日期信息到文件末尾
 if [ -n "$LAST_UPDATE_DATE" ]; then
-  printf "\n>\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
+  #printf "\n>\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
+  # 检查文件中是否已经有最后更新日期信息
+  if grep -q "^> 最后更新日期:" "$FILE"; then
+    # 如果存在最后更新日期信息，仅更改日期部分
+    sed -i '' -e "s/^> 最后更新日期:.*/> 最后更新日期: $LAST_UPDATE_DATE/" "$FILE"
+  else
+    # 如果不存在最后更新日期信息，插入新的日期信息
+    echo -e "\n>\n> 最后更新日期: $LAST_UPDATE_DATE\n" >> "$FILE"
+  fi
 fi
 
