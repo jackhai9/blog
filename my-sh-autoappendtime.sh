@@ -56,7 +56,7 @@ if [ -n "$LAST_UPDATE_DATE" ]; then
     sed -i '' -e "s/^> 最后更新日期:.*/> 最后更新日期: $LAST_UPDATE_DATE/" "$FILE"
   else
     # 如果不存在最后更新日期信息，插入新的日期信息
-    echo -e ">\n> 最后更新日期: $LAST_UPDATE_DATE\n" >> "$FILE"
+    echo -e ">\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
   fi
 fi
 
