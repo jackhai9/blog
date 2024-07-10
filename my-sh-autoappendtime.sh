@@ -35,7 +35,7 @@ LAST_UPDATE_DATE=$(git log -1 --format=%ad --date=short -- "$FILE")
 
 # 检查文件中是否已经有创建日期
 if ! grep -q "^> 本文创建日期:" "$FILE"; then
-  echo -e "\n\n\n\n---\n\n> 本文创建日期: $CREATION_DATE\n>" >> "$FILE"
+  echo -e "\n\n\n\n---\n\n> 本文创建日期: $CREATION_DATE" >> "$FILE"
 fi
 
 # 删除已有的最后更新日期信息
@@ -44,8 +44,11 @@ sed -i '' -e '/^> 最后更新日期:/d' "$FILE"
 # 删除文件末尾的空行
 sed -i '' -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "$FILE"
 
+# 只删除文件中最后一行是“> ”的
+sed -i '' -e '${/^> $/d;}' "$FILE"
+
 # 追加新的最后更新日期信息到文件末尾
 if [ -n "$LAST_UPDATE_DATE" ]; then
-  printf "> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
+  printf "\n>\n> 最后更新日期: $LAST_UPDATE_DATE" >> "$FILE"
 fi
 
