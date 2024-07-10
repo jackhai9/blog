@@ -29,6 +29,9 @@ CREATION_DATE=$(git log --diff-filter=A --follow --format=%ad --date=short -1 --
 # 获取最后更新日期
 LAST_UPDATE_DATE=$(git log -1 --format=%ad --date=short -- "$FILE")
 
+echo "$CREATION_DATE"
+echo "$LAST_UPDATE_DATE"
+
 # 检查文件中是否已经有创建日期
 if ! grep -q "^> 本文创建日期:" "$FILE"; then
   echo -e "\n\n\n\n---\n\n> 本文创建日期: $CREATION_DATE\n>" >> "$FILE"
