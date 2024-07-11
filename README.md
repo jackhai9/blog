@@ -19,7 +19,7 @@
 2. 手动 -- 本地写Markdown文件并自行控制文件之间的组织关系（链接引用、图片、目录等使用相对路径）
 3. 手动 -- 提交Markdown文件到GitHub
 4. 自动 -- Github Pages 会自动执行其内置的[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
-5. 附加功能：执行脚本`bash setup-hooks.sh`
+5. 附加功能：执行脚本`bash setup-hooks.sh`、`chmod +x .git/hooks/pre-commit`、`chmod +x my-sh-autoappendtime.sh`
 
 ## 概念说明
 
@@ -67,4 +67,4 @@
 
 > 本文创建日期: 2024-01-28
 >
-> 最后更新日期: 2024-07-09
+> 最后更新日期: 2024-07-11
