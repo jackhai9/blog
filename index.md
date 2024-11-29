@@ -1,5 +1,9 @@
 
 
+# Jackhai的博客
+
+> Do one thing and do it well.
+
 
 
 ## 技术笔记
