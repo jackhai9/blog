@@ -20,11 +20,12 @@
 
 ---
 
-> 原始发布时间: 2016-11-17 21:10:04
-> 原文分类: 技术
-> 原文标签: Dubbo, 分布式服务架构
-> 原文地址: https://jackhai9.github.io/2016/11/17/Dubbo分布式服务/
-> 原始来源文件: jackhai9.github.io/source/_posts/Dubbo分布式服务.md
+<small><em style="color: #888">
+原始发布时间: 2016-11-17 21:10:04<br>
+原文分类: 技术<br>
+原文标签: Dubbo, 分布式服务架构<br>
+原文地址: https://jackhai9.github.io/2016/11/17/Dubbo分布式服务/
+</em></small>
 
 
 

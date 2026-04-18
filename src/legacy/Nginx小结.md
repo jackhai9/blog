@@ -6,11 +6,12 @@
 
 ---
 
-> 原始发布时间: 2016-05-20 17:58:11
-> 原文分类: 技术
-> 原文标签: 反向代理, 负载均衡
-> 原文地址: https://jackhai9.github.io/2016/05/20/Nginx小结/
-> 原始来源文件: jackhai9.github.io/source/_posts/Nginx小结.md
+<small><em style="color: #888">
+原始发布时间: 2016-05-20 17:58:11<br>
+原文分类: 技术<br>
+原文标签: 反向代理, 负载均衡<br>
+原文地址: https://jackhai9.github.io/2016/05/20/Nginx小结/
+</em></small>
 
 
 

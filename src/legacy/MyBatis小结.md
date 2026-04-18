@@ -7,11 +7,12 @@ MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及对结果
 
 ---
 
-> 原始发布时间: 2015-06-15 20:28:55
-> 原文分类: 技术
-> 原文标签: MyBatis, ORM
-> 原文地址: https://jackhai9.github.io/2015/06/15/MyBatis小结/
-> 原始来源文件: jackhai9.github.io/source/_posts/MyBatis小结.md
+<small><em style="color: #888">
+原始发布时间: 2015-06-15 20:28:55<br>
+原文分类: 技术<br>
+原文标签: MyBatis, ORM<br>
+原文地址: https://jackhai9.github.io/2015/06/15/MyBatis小结/
+</em></small>
 
 
 

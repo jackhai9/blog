@@ -6,11 +6,12 @@
 
 ---
 
-> 原始发布时间: 2015-02-24 20:16:06
-> 原文分类: 随记
-> 原文标签: 无
-> 原文地址: https://jackhai9.github.io/2015/02/24/从Android到JavaWeb/
-> 原始来源文件: jackhai9.github.io/source/_posts/从Android到JavaWeb.md
+<small><em style="color: #888">
+原始发布时间: 2015-02-24 20:16:06<br>
+原文分类: 随记<br>
+原文标签: 无<br>
+原文地址: https://jackhai9.github.io/2015/02/24/从Android到JavaWeb/
+</em></small>
 
 
 

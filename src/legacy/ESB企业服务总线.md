@@ -12,11 +12,12 @@ Apache还有个ServiceMix项目，对ActiveMQ和Camel进行了集成，也可以
 
 ---
 
-> 原始发布时间: 2015-08-08 11:11:38
-> 原文分类: 技术
-> 原文标签: ESB, ActiveMQ
-> 原文地址: https://jackhai9.github.io/2015/08/08/ESB企业服务总线/
-> 原始来源文件: jackhai9.github.io/source/_posts/ESB企业服务总线.md
+<small><em style="color: #888">
+原始发布时间: 2015-08-08 11:11:38<br>
+原文分类: 技术<br>
+原文标签: ESB, ActiveMQ<br>
+原文地址: https://jackhai9.github.io/2015/08/08/ESB企业服务总线/
+</em></small>
 
 
 

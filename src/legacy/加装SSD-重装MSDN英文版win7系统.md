@@ -15,11 +15,12 @@
 
 ---
 
-> 原始发布时间: 2014-11-20 00:13:40
-> 原文分类: 工具
-> 原文标签: SSD
-> 原文地址: https://jackhai9.github.io/2014/11/20/加装SSD-重装MSDN英文版win7系统/
-> 原始来源文件: jackhai9.github.io/source/_posts/加装SSD-重装MSDN英文版win7系统.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-20 00:13:40<br>
+原文分类: 工具<br>
+原文标签: SSD<br>
+原文地址: https://jackhai9.github.io/2014/11/20/加装SSD-重装MSDN英文版win7系统/
+</em></small>
 
 
 

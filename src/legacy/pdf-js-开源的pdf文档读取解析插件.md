@@ -14,11 +14,12 @@ build和web这两个目录是关键。
 
 ---
 
-> 原始发布时间: 2017-10-11 21:50:17
-> 原文分类: 技术
-> 原文标签: pdfjs, 前端
-> 原文地址: https://jackhai9.github.io/2017/10/11/pdf-js-开源的pdf文档读取解析插件/
-> 原始来源文件: jackhai9.github.io/source/_posts/pdf-js-开源的pdf文档读取解析插件.md
+<small><em style="color: #888">
+原始发布时间: 2017-10-11 21:50:17<br>
+原文分类: 技术<br>
+原文标签: pdfjs, 前端<br>
+原文地址: https://jackhai9.github.io/2017/10/11/pdf-js-开源的pdf文档读取解析插件/
+</em></small>
 
 
 

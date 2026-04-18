@@ -44,11 +44,12 @@ Ok搞定！（rd 命令就是删除文件夹）
 
 ---
 
-> 原始发布时间: 2014-11-21 19:50:53
-> 原文分类: 折腾
-> 原文标签: 无
-> 原文地址: https://jackhai9.github.io/2014/11/21/使用gitcafe同步github/
-> 原始来源文件: jackhai9.github.io/source/_posts/使用gitcafe同步github.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-21 19:50:53<br>
+原文分类: 折腾<br>
+原文标签: 无<br>
+原文地址: https://jackhai9.github.io/2014/11/21/使用gitcafe同步github/
+</em></small>
 
 
 

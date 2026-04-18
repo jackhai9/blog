@@ -211,11 +211,12 @@ Sun/Oracle JDK GC组合方式:
 
 ---
 
-> 原始发布时间: 2015-02-27 20:25:11
-> 原文分类: 技术
-> 原文标签: Java, 垃圾回收, gc
-> 原文地址: https://jackhai9.github.io/2015/02/27/Java垃圾回收机制/
-> 原始来源文件: jackhai9.github.io/source/_posts/Java垃圾回收机制.md
+<small><em style="color: #888">
+原始发布时间: 2015-02-27 20:25:11<br>
+原文分类: 技术<br>
+原文标签: Java, 垃圾回收, gc<br>
+原文地址: https://jackhai9.github.io/2015/02/27/Java垃圾回收机制/
+</em></small>
 
 
 

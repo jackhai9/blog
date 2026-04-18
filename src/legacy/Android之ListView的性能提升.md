@@ -129,11 +129,12 @@ Romain Guy写了一个很经典的应用：[Shelves app](http://code.google.com/
 
 ---
 
-> 原始发布时间: 2014-11-21 15:10:14
-> 原文分类: 技术
-> 原文标签: ListView
-> 原文地址: https://jackhai9.github.io/2014/11/21/Android之ListView的性能提升/
-> 原始来源文件: jackhai9.github.io/source/_posts/Android之ListView的性能提升.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-21 15:10:14<br>
+原文分类: 技术<br>
+原文标签: ListView<br>
+原文地址: https://jackhai9.github.io/2014/11/21/Android之ListView的性能提升/
+</em></small>
 
 
 

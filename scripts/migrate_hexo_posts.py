@@ -26,7 +26,6 @@ DEAD_IMAGE_NOTICE = (
 @dataclass
 class LegacyPost:
     source_path: Path
-    source_reference: str
     title: str
     published_at: datetime
     categories: list[str]
@@ -230,7 +229,6 @@ def build_post(source_path: Path) -> LegacyPost:
 
     return LegacyPost(
         source_path=source_path,
-        source_reference="",
         title=title,
         published_at=published_at,
         categories=normalize_list(metadata.get("categories")),
@@ -242,7 +240,7 @@ def build_post(source_path: Path) -> LegacyPost:
 
 
 def format_metadata_line(label: str, values: list[str]) -> str:
-    return f"> {label}: {', '.join(values) if values else '无'}"
+    return f"{label}: {', '.join(values) if values else '无'}<br>"
 
 
 def has_dead_images(post: LegacyPost) -> bool:
@@ -273,11 +271,12 @@ def render_post(post: LegacyPost) -> str:
         [
             "---",
             "",
-            f"> 原始发布时间: {post.published_timestamp}",
+            '<small><em style="color: #888">',
+            f"原始发布时间: {post.published_timestamp}<br>",
             format_metadata_line("原文分类", post.categories),
             format_metadata_line("原文标签", post.tags),
-            f"> 原文地址: {post.original_url}",
-            f"> 原始来源文件: {post.source_reference}",
+            f"原文地址: {post.original_url}",
+            "</em></small>",
         ]
     )
 
@@ -307,12 +306,7 @@ def collect_posts(source_dir: Path, includes: set[str]) -> list[LegacyPost]:
     for source_path in sorted(source_dir.glob("*.md")):
         if includes and source_path.stem not in includes:
             continue
-        post = build_post(source_path)
-        relative_path = source_path.relative_to(source_dir.parent.parent).as_posix()
-        post.source_reference = (
-            f"{source_dir.parent.parent.name}/{relative_path}"
-        )
-        posts.append(post)
+        posts.append(build_post(source_path))
     return posts
 
 

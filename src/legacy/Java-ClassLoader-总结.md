@@ -187,11 +187,12 @@ public class FileSystemClassLoader extends ClassLoader
 
 ---
 
-> 原始发布时间: 2014-11-07 18:35:56
-> 原文分类: 技术
-> 原文标签: Java, ClassLoader
-> 原文地址: https://jackhai9.github.io/2014/11/07/Java-ClassLoader-总结/
-> 原始来源文件: jackhai9.github.io/source/_posts/Java-ClassLoader-总结.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-07 18:35:56<br>
+原文分类: 技术<br>
+原文标签: Java, ClassLoader<br>
+原文地址: https://jackhai9.github.io/2014/11/07/Java-ClassLoader-总结/
+</em></small>
 
 
 

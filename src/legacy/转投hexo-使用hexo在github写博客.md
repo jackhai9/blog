@@ -89,11 +89,12 @@ hexo deploy
 
 ---
 
-> 原始发布时间: 2014-11-06 18:50:40
-> 原文分类: Hexo
-> 原文标签: Hexo
-> 原文地址: https://jackhai9.github.io/2014/11/06/转投hexo-使用hexo在github写博客/
-> 原始来源文件: jackhai9.github.io/source/_posts/转投hexo-使用hexo在github写博客.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-06 18:50:40<br>
+原文分类: Hexo<br>
+原文标签: Hexo<br>
+原文地址: https://jackhai9.github.io/2014/11/06/转投hexo-使用hexo在github写博客/
+</em></small>
 
 
 

@@ -163,11 +163,12 @@ at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
 
 ---
 
-> 原始发布时间: 2014-11-27 20:48:06
-> 原文分类: 工具
-> 原文标签: Error, Exception
-> 原文地址: https://jackhai9.github.io/2014/11/27/Eclipse的-Unhandled-event-loop-exception问题/
-> 原始来源文件: jackhai9.github.io/source/_posts/Eclipse的-Unhandled-event-loop-exception问题.md
+<small><em style="color: #888">
+原始发布时间: 2014-11-27 20:48:06<br>
+原文分类: 工具<br>
+原文标签: Error, Exception<br>
+原文地址: https://jackhai9.github.io/2014/11/27/Eclipse的-Unhandled-event-loop-exception问题/
+</em></small>
 
 
 
