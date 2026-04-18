@@ -8,7 +8,7 @@ Git使用文档见[这里](https://www.liaoxuefeng.com/wiki/0013739516305929606d
 
 ---
 
-<small markdown="1">
+<div markdown="1" style="font-size: 0.85em">
 
 > 原始发布时间: 2015-03-15 16:59:58
 >
@@ -20,7 +20,7 @@ Git使用文档见[这里](https://www.liaoxuefeng.com/wiki/0013739516305929606d
 >
 > 原始来源文件: jackhai9.github.io/source/_posts/从SVN转到Git.md
 
-</small>
+</div>
 
 
 
