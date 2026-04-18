@@ -13,7 +13,7 @@
 
 - 旧站是 Hexo 项目，文章位于 `jackhai9.github.io/source/_posts`。
 - 旧文 front matter 中稳定存在 `title`、`date`，多数文章还有 `categories`、`tags`。
-- 当前本地旧仓库的文件级 Git 历史并不等于文章原始更新时间，因此不能把旧仓库最近一次提交时间当作“原始最后更新时间”。
+- 旧文原始时间只能从 front matter 的 `date` 取，Git 历史不反映文章原始发布/更新时间。
 
 ### 新站
 
@@ -39,8 +39,17 @@
 
 - 旧文导入目录：`blog/src/legacy/`
 - 迁移脚本：`blog/scripts/migrate_hexo_posts.py`
-- 迁移说明文章：`blog/src/1-4.旧博客迁移.md`
-- 审核文档：`blog/scripts/migration-plan.md`
+- 仓库布局前提：旧仓库 `jackhai9.github.io` 与本仓库 `blog/` 位于同一父目录下，脚本按默认相对路径 `../jackhai9.github.io/source/_posts` 定位旧文；若布局不同，用 `--source` 显式指定。
+
+## 脚本参数
+
+- `--dry-run`：只预览不写文件（默认行为）
+- `--apply`：实际写入（缺这个参数就是预览）
+- `--include <stem>`：只迁移指定源文件名（可重复，用于样例导出）
+- `--source <dir>`：来源目录（默认 `../jackhai9.github.io/source/_posts`）
+- `--output <dir>`：输出目录（默认 `src/legacy`）
+- `--overwrite`：目标文件已存在时覆盖，不加则遇到冲突即报错退出
+- `--write-index`：同时生成 `legacy/index.md` 归档入口，按发布日期倒序列出所有迁移文章，顶部含指向本方案的链接
 
 ## 内容转换规则
 
@@ -72,6 +81,7 @@
   - `msdn.itellyou.cn/` -> `https://msdn.itellyou.cn/`
   - `localhost:4000` -> `http://localhost:4000`
 - 针对 `layout: photo` 文章，把 `photos:` 列表转成普通 Markdown 图片列表
+- 文章含 `qiniudn.com` / `clouddn.com`（旧七牛测试域名，已失效）时，自动在文章顶部插入一行提示，说明图片因域名失效而无法显示，避免读者误认为是渲染 bug
 
 ## 执行流程
 
@@ -128,11 +138,9 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 
 - 检查是否有少数文章需要手工修正文案、链接或图片
 - 决定哪些旧文要挂到首页，哪些只放在 `legacy/index.md`
-- 必要时补充“迁移说明”或专题入口页
 
 ### Phase 5: 提交与发布
 
-- 提交 `scripts/migration-plan.md`
 - 提交迁移脚本
 - 提交迁移后的文章
 - 提交首页入口更新
@@ -156,8 +164,8 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 
 处理：
 
-- 不把“原文时间”塞进当前站点的 `最后更新日期` 字段里。
-- 原始信息单独写进文章底部，保证不会因后续提交而丢失。
+- 脚本不写当前仓库的 `本文创建日期 / 最后更新日期`，由 pre-commit 在首次提交时按仓库规则补齐
+- 原文时间作为独立元数据写在文章底部 `<small>` 块，不会被 pre-commit 覆盖
 
 ### 风险 2：旧文存在少量 Hexo 专有内容
 
@@ -179,15 +187,6 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 - 脚本只写 `src/legacy/`，不改旧站仓库
 - 如需回滚，删除 `src/legacy/` 下本次导入文件并回退首页入口即可
 - 因为是复制迁移，回滚不影响旧站
-
-## 推荐执行顺序
-
-1. 合入 `scripts/migration-plan.md`
-2. 合入 `scripts/migrate_hexo_posts.py`
-3. 审核迁移说明文章
-4. 跑样例导出
-5. 跑全量导入
-6. 人工抽查后再提交上线
 
 
 
