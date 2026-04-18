@@ -8,7 +8,7 @@
 
 ---
 
-<small><em>
+<small><em style="color: #888">
 原始发布时间: 2016-04-28 16:48:08<br>
 原文分类: 技术<br>
 原文标签: Jenkins<br>
