@@ -57,10 +57,11 @@
 ### 字段映射
 
 - `title` -> 文档一级标题 `# title`
-- `date` -> `> 原文时间: YYYY-MM-DD HH:mm:ss`
-- `categories` -> `> 原文分类: ...`
-- `tags` -> `> 原文标签: ...`
+- `date` -> `原文时间: YYYY-MM-DD HH:mm:ss`
+- `categories` -> `原文分类: ...`
+- `tags` -> `原文标签: ...`
 - 源文件名 -> 旧站 permalink 中的 slug
+- 统一输出：上述四个字段包裹在 `<small><em style="color: #888">...<br></em></small>` 里，和正文间用 `---` 分隔，视觉上弱于当前仓库的本文创建/更新日期块
 - 当前仓库时间 -> 由 pre-commit 在首次提交时写入 `> 本文创建日期:` 和 `> 最后更新日期:`
 
 ### 正文清洗
