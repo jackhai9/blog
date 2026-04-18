@@ -39,7 +39,7 @@
 
 - 旧文导入目录：`blog/src/legacy/`
 - 迁移脚本：`blog/scripts/migrate_hexo_posts.py`
-- 迁移说明文章：`blog/src/1-4.旧博客迁移方案.md`
+- 迁移说明文章：`blog/src/旧博客迁移方案.md`
 - 审核文档：`blog/MIGRATION_PLAN.md`
 
 ## 内容转换规则

@@ -290,7 +290,7 @@ def render_index(posts: list[LegacyPost], output_dir: Path) -> str:
         "",
         "以下文章由迁移脚本从 `jackhai9.github.io/source/_posts` 生成到当前仓库。",
         "",
-        "迁移规则和脚本说明见：[旧博客迁移方案](../1-4.旧博客迁移方案.md)。",
+        "迁移规则和脚本说明见：[旧博客迁移方案](../旧博客迁移方案.md)。",
         "",
     ]
 
