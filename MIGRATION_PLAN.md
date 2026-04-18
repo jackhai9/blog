@@ -4,7 +4,7 @@
 
 - 将 `jackhai9.github.io/source/_posts` 中的历史文章迁移到当前 `blog` 仓库。
 - 旧站 `jackhai9.github.io` 保持原样，继续在线，不删除、不覆盖、不重定向。
-- 在新站中保留旧文的原始信息，尤其是原始发布时间、分类、标签、原文地址。
+- 在新站中保留旧文的原始信息，尤其是原文时间、分类、标签、原文地址。
 - 迁移过程必须可审、可复跑、可回滚，不能依赖手工逐篇复制。
 
 ## 现状结论
@@ -26,7 +26,7 @@
 
 ## 迁移原则
 
-1. 原始发布时间直接使用旧文 front matter 中的 `date`。
+1. 原文时间直接使用旧文 front matter 中的 `date`。
 2. 原始分类和标签直接使用旧文 front matter 中的 `categories`、`tags`。
 3. 原文地址按旧站 Hexo permalink 规则恢复：
    `https://jackhai9.github.io/:year/:month/:day/:filename/`
@@ -57,7 +57,7 @@
 ### 字段映射
 
 - `title` -> 文档一级标题 `# title`
-- `date` -> `> 原始发布时间: YYYY-MM-DD HH:mm:ss`
+- `date` -> `> 原文时间: YYYY-MM-DD HH:mm:ss`
 - `categories` -> `> 原文分类: ...`
 - `tags` -> `> 原文标签: ...`
 - 源文件名 -> 旧站 permalink 中的 slug
@@ -88,7 +88,7 @@ python3 scripts/migrate_hexo_posts.py --dry-run
 
 - 识别到的文章总数是否正确
 - 输出路径是否都在 `src/legacy/`
-- 原始发布时间和原文地址是否正确生成
+- 原文时间和原文地址是否正确生成
 
 ### Phase 2: 样例导出
 
@@ -144,7 +144,7 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 - 新站存在可重复执行的迁移脚本
 - 新站存在迁移计划文档，别人看完就能复跑
 - 每篇迁移文章至少保留以下原始信息：
-  - 原始发布时间
+  - 原文时间
   - 原文分类
   - 原文标签
   - 原文地址
@@ -157,7 +157,7 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 
 处理：
 
-- 不把“原始发布时间”塞进当前站点的 `最后更新日期` 字段里。
+- 不把“原文时间”塞进当前站点的 `最后更新日期` 字段里。
 - 原始信息单独写进文章底部，保证不会因后续提交而丢失。
 
 ### 风险 2：旧文存在少量 Hexo 专有内容
