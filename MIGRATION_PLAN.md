@@ -39,7 +39,7 @@
 
 - 旧文导入目录：`blog/src/legacy/`
 - 迁移脚本：`blog/scripts/migrate_hexo_posts.py`
-- 迁移说明文章：`blog/src/1-4.旧博客迁移方案.md`
+- 迁移说明文章：`blog/src/legacy/旧博客迁移.md`
 - 审核文档：`blog/MIGRATION_PLAN.md`
 
 ## 内容转换规则
@@ -61,7 +61,6 @@
 - `categories` -> `> 原文分类: ...`
 - `tags` -> `> 原文标签: ...`
 - 源文件名 -> 旧站 permalink 中的 slug
-- 源文件相对路径 -> `> 原始来源文件: ...`
 - 当前仓库时间 -> 由 pre-commit 在首次提交时写入 `> 本文创建日期:` 和 `> 最后更新日期:`
 
 ### 正文清洗
@@ -148,7 +147,6 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
   - 原文分类
   - 原文标签
   - 原文地址
-  - 原始来源文件
 - 迁移不会覆盖 `blog/src` 下现有文章
 
 ## 风险与处理
