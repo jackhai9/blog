@@ -19,7 +19,7 @@
 
 - 新站是纯 Markdown + GitHub Pages 的轻量结构，文章主要放在 `blog/src`。
 - 首页 `blog/index.md` 是手工维护的链接列表。
-- `blog/my-sh-autoappendtime.sh` 会在提交前自动追加或改写：
+- `blog/scripts/autoappend-time.sh` 会在提交前自动追加或改写：
   - `> 本文创建日期:`
   - `> 最后更新日期:`
 - 这意味着如果不做额外设计，迁移文章的“最后更新日期”会在提交时被改成迁移当天。

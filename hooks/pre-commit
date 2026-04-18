@@ -13,7 +13,7 @@ git diff --name-only --cached | grep '\.md$' | while read -r FILE; do
   # 将转义字符转换回原始字符，以防git没有设置"git config --global core.quotepath false"
   DECODED_FILE=$(printf "%b" "$CLEANED_FILE")
   # echo "Adding file: $DECODED_FILE"
-  "$PROJECT_ROOT/my-sh-autoappendtime.sh" "$DECODED_FILE"
+  "$PROJECT_ROOT/scripts/autoappend-time.sh" "$DECODED_FILE"
   git add "$DECODED_FILE"
 done
 unset IFS
