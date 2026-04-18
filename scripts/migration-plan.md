@@ -39,8 +39,8 @@
 
 - 旧文导入目录：`blog/src/legacy/`
 - 迁移脚本：`blog/scripts/migrate_hexo_posts.py`
-- 迁移说明文章：`blog/src/legacy/旧博客迁移.md`
-- 审核文档：`blog/MIGRATION_PLAN.md`
+- 迁移说明文章：`blog/src/1-4.旧博客迁移.md`
+- 审核文档：`blog/scripts/migration-plan.md`
 
 ## 内容转换规则
 
@@ -132,7 +132,7 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 
 ### Phase 5: 提交与发布
 
-- 提交 `MIGRATION_PLAN.md`
+- 提交 `scripts/migration-plan.md`
 - 提交迁移脚本
 - 提交迁移后的文章
 - 提交首页入口更新
@@ -182,7 +182,7 @@ python3 scripts/migrate_hexo_posts.py --apply --write-index
 
 ## 推荐执行顺序
 
-1. 合入 `MIGRATION_PLAN.md`
+1. 合入 `scripts/migration-plan.md`
 2. 合入 `scripts/migrate_hexo_posts.py`
 3. 审核迁移说明文章
 4. 跑样例导出
