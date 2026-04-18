@@ -1,0 +1,179 @@
+# Eclipse的 Unhandled event loop exception问题
+
+以前从未遇到过这种问题,重装系统后就开始触发这个bug.
+
+[stackoverflow](http://stackoverflow.com/)上也确实不少人遇到这个问题。
+
+从error-log等视图里切换到java文件或者xml文件时,出现"unhandled event loop exception"错误,出错信息如下:
+```java
+
+Exception Stack Trace:
+org.eclipse.swt.SWTError: No more handles
+at org.eclipse.swt.SWT.error(SWT.java:4387)
+at org.eclipse.swt.SWT.error(SWT.java:4276)
+at org.eclipse.swt.SWT.error(SWT.java:4247)
+at org.eclipse.swt.widgets.Widget.error(Widget.java:468)
+at org.eclipse.swt.widgets.Control.createHandle(Control.java:704)
+at org.eclipse.swt.widgets.Label.createHandle(Label.java:199)
+at org.eclipse.swt.widgets.Control.createWidget(Control.java:744)
+at org.eclipse.swt.widgets.Control.<init>(Control.java:112)
+at org.eclipse.swt.widgets.Label.<init>(Label.java:101)
+at org.eclipse.ui.texteditor.StatusLineContributionItem.fill(StatusLineContributionItem.java:182)
+at org.eclipse.jface.action.SubContributionItem.fill(SubContributionItem.java:59)
+at org.eclipse.jface.action.StatusLineManager.update(StatusLineManager.java:327)
+at org.eclipse.ui.internal.WorkbenchPage.updateActivations(WorkbenchPage.java:265)
+at org.eclipse.ui.internal.WorkbenchPage.access$15(WorkbenchPage.java:243)
+at org.eclipse.ui.internal.WorkbenchPage$E4PartListener.partActivated(WorkbenchPage.java:172)
+at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$2.run(PartServiceImpl.java:193)
+at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.firePartActivated(PartServiceImpl.java:191)
+at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:596)
+at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:549)
+at org.eclipse.e4.ui.internal.workbench.swt.AbstractPartRenderer.activate(AbstractPartRenderer.java:105)
+at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer$1.handleEvent(ContributedPartRenderer.java:61)
+at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1077)
+at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1058)
+at org.eclipse.swt.widgets.Shell.setActiveControl(Shell.java:1447)
+at org.eclipse.swt.widgets.Shell.WM_MOUSEACTIVATE(Shell.java:2328)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4572)
+at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:341)
+at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1627)
+at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2069)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:341)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2541)
+at org.eclipse.swt.widgets.Scrollable.callWindowProc(Scrollable.java:80)
+at org.eclipse.swt.widgets.Control.windowProc(Control.java:4623)
+at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:341)
+at org.eclipse.swt.widgets.Display.windowProc(Display.java:4989)
+at org.eclipse.swt.internal.win32.OS.PeekMessageW(Native Method)
+at org.eclipse.swt.internal.win32.OS.PeekMessage(OS.java:3129)
+at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3753)
+at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+```
+网上搜索后找到[这个](http://www.eclipse.org/forums/index.php/t/496362/).
+
+
+我的解决过程:
+
+~~解决方法: 重装了下jdk(没有重启机器)还是无效.然后,修改了workspace,重启机器,ok.发现,很多问题都可以通过修改workspace来解决,建议一个工程一个workspace. 上述方法无效！！ Google下发现好像是打开.java的默认编辑器在win7x64位的笔记本上有问题，解决方法：help->install new software，从`http://download.eclipse.org/windowbuilder/WB/release/R201309271200/4.3`下载windowbuilder，并把其设置为默认的.java编辑器。重启Eclipse后切换回.java文件时不出bug了,但是切换回.xml文件还是会触发这个bug。~~
+
+#### **最后的终极解决方法:**
+#### 更新 Win7 ! ok,问题解决!
+(windows update了下win7,搞定！！所以：直接进行windows update，安装关于security的补丁！)
+
+---
+
+> 原始发布时间: 2014-11-27 20:48:06
+> 原文分类: 工具
+> 原文标签: Error, Exception
+> 原文地址: https://jackhai9.github.io/2014/11/27/Eclipse的-Unhandled-event-loop-exception问题/
+> 原始来源文件: jackhai9.github.io/source/_posts/Eclipse的-Unhandled-event-loop-exception问题.md
+
+
+
+
+---
+
+> 本文创建日期: 2026-04-18
+>
+> 最后更新日期: 2026-04-18

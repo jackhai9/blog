@@ -37,16 +37,17 @@
 
 
 
+## 旧博客归档
+
+[全部历史文章](src/legacy/index.md) 从旧 Hexo 博客迁移过来的 29 篇存档，原始发布时间、分类、标签都保留
+
 
 
 ## 关于我
-我的[Github](https://github.com/jackhai9/)
 
-此博客的[Github仓库](https://github.com/jackhai9/blog)
-
-之前的[老博客](https://jackhai9.github.io/)
-
-
+- GitHub: [@jackhai9](https://github.com/jackhai9/)
+- 本站仓库: [blog](https://github.com/jackhai9/blog)
+- 旧博客: [jackhai9.github.io](https://jackhai9.github.io/)
 
 
 
@@ -54,4 +55,4 @@
 
 > 本文创建日期: 2024-01-28
 >
-> 最后更新日期: 2025-11-29
+> 最后更新日期: 2026-04-18
