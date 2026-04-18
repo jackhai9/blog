@@ -8,7 +8,7 @@ Git使用文档见[这里](https://www.liaoxuefeng.com/wiki/0013739516305929606d
 
 ---
 
-<div markdown="1" style="font-size: 0.85em">
+<div markdown="1" style="font-size: 0.85em; font-style: italic">
 
 > 原始发布时间: 2015-03-15 16:59:58
 >
