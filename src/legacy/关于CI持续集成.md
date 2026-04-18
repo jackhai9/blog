@@ -8,11 +8,13 @@
 
 ---
 
-> 原始发布时间: 2016-04-28 16:48:08
-> 原文分类: 技术
-> 原文标签: Jenkins
-> 原文地址: https://jackhai9.github.io/2016/04/28/关于CI持续集成/
-> 原始来源文件: jackhai9.github.io/source/_posts/关于CI持续集成.md
+<small><em>
+原始发布时间: 2016-04-28 16:48:08<br>
+原文分类: 技术<br>
+原文标签: Jenkins<br>
+原文地址: https://jackhai9.github.io/2016/04/28/关于CI持续集成/<br>
+原始来源文件: jackhai9.github.io/source/_posts/关于CI持续集成.md
+</em></small>
 
 
 
