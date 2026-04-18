@@ -46,7 +46,7 @@
 ## 关于我
 
 - GitHub: [@jackhai9](https://github.com/jackhai9/)
-- 本站仓库: [blog](https://github.com/jackhai9/blog)
+- 本站仓库: [blog]({{ site.repo_url }})
 - 旧博客: [jackhai9.github.io](https://jackhai9.github.io/)
 
 
