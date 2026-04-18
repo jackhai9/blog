@@ -393,7 +393,7 @@ public class SessionFilter implements Filter {
 ---
 
 <small><em style="color: #888">
-原始发布时间: 2015-06-10 19:18:18<br>
+原文时间: 2015-06-10 19:18:18<br>
 原文分类: 技术<br>
 原文标签: Java, Servlet, Filter<br>
 原文地址: https://jackhai9.github.io/2015/06/10/Filter过滤器总结/

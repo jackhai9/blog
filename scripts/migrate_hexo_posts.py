@@ -272,7 +272,7 @@ def render_post(post: LegacyPost) -> str:
             "---",
             "",
             '<small><em style="color: #888">',
-            f"原始发布时间: {post.published_timestamp}<br>",
+            f"原文时间: {post.published_timestamp}<br>",
             format_metadata_line("原文分类", post.categories),
             format_metadata_line("原文标签", post.tags),
             f"原文地址: {post.original_url}",

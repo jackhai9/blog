@@ -366,7 +366,7 @@ public final void runOnUiThread(Runnable action) {
 ---
 
 <small><em style="color: #888">
-原始发布时间: 2014-11-09 21:46:15<br>
+原文时间: 2014-11-09 21:46:15<br>
 原文分类: 转载<br>
 原文标签: 异步消息, Handler, Looper, MessageQueue<br>
 原文地址: https://jackhai9.github.io/2014/11/09/Android异步消息机制完全解析/

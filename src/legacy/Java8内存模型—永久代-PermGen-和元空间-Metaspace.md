@@ -228,7 +228,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: Metaspace
 ---
 
 <small><em style="color: #888">
-原始发布时间: 2017-08-02 16:21:17<br>
+原文时间: 2017-08-02 16:21:17<br>
 原文分类: 技术<br>
 原文标签: Java, 内存模型<br>
 原文地址: https://jackhai9.github.io/2017/08/02/Java8内存模型—永久代-PermGen-和元空间-Metaspace/
