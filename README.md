@@ -40,7 +40,6 @@ bash scripts/setup-hooks.sh
 ```
 
 The hook updates article creation and last-updated metadata before commits.
-For README or docs-only commits, see [`docs/additional-notes.md`](docs/additional-notes.md#提交项目文档时的-hook-说明) before committing.
 
 ## Legacy Blog
 
