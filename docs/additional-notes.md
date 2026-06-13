@@ -60,8 +60,9 @@
 当前博客在 `_includes/head-custom.html` 中实现了夜间模式：
 
 - 默认跟随系统的 `prefers-color-scheme`。
-- 右上角按钮可以手动切换日间/夜间模式。
-- 手动选择会保存在浏览器 `localStorage` 中。
+- 右上角按钮按 `System -> Light -> Dark -> System` 循环切换。
+- `System` 模式会实时跟随手机或系统主题变化。
+- `Light` 和 `Dark` 模式会保存在浏览器 `localStorage` 中，作为手动覆盖。
 - 页面从浏览器返回缓存恢复时，会重新同步已保存的主题偏好。
 
 #### 修改默认博客名
