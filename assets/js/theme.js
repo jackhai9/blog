@@ -1,6 +1,15 @@
 (function () {
   window.blogTheme = window.blogTheme || {};
-  window.blogTheme.storageKey = "blog-theme";
+  window.blogTheme.legacyStorageKey = "blog-theme";
+  window.blogTheme.storageKey = "blog-theme-override";
+
+  window.blogTheme.clearLegacyStoredTheme = function () {
+    try {
+      localStorage.removeItem(window.blogTheme.legacyStorageKey);
+    } catch (error) {
+      return;
+    }
+  };
 
   window.blogTheme.getStoredTheme = function () {
     try {
@@ -36,6 +45,7 @@
     document.documentElement.dataset.theme = theme || window.blogTheme.resolve();
   };
 
+  window.blogTheme.clearLegacyStoredTheme();
   window.blogTheme.apply();
 })();
 
