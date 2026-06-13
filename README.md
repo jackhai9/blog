@@ -42,7 +42,7 @@ The hook updates article creation and last-updated metadata before commits.
 
 ## Legacy Blog
 
-The older Hexo-based blog lives in [`jackhai9/jackhai9.github.io`](https://github.com/jackhai9/jackhai9.github.io). This repository is the simpler Markdown-based successor.
+The older Hexo-based blog lives in [`jackhai9/jackhai9.github.io`](https://github.com/jackhai9/jackhai9.github.io).
 
 ## License
 

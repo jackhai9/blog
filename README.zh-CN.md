@@ -42,7 +42,7 @@ bash scripts/setup-hooks.sh
 
 ## 旧博客
 
-旧版 Hexo 博客位于 [`jackhai9/jackhai9.github.io`](https://github.com/jackhai9/jackhai9.github.io)。这个仓库是更简单的 Markdown 版本。
+旧版 Hexo 博客位于 [`jackhai9/jackhai9.github.io`](https://github.com/jackhai9/jackhai9.github.io)。
 
 ## License
 
