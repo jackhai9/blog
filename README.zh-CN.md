@@ -49,10 +49,10 @@
 默认是没有favicon的，如果需要添加：
 
 1. 把你的favicon.ico放在根目录下，也就是跟index.md同一级目录。
-2. 新建_includes/head-custom.html，内容如下：把其中的"blog"替换成你自己的仓库名
+2. 新建_includes/head-custom.html，内容如下：
 
 ```html
-<link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 ```
 
 #### 修改默认博客名
