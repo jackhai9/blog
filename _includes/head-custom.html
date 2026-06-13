@@ -1,15 +1,39 @@
-<link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 <meta name="color-scheme" content="light dark">
 
 <script>
 (function () {
   window.blogTheme = window.blogTheme || {};
+  window.blogTheme.storageKey = "blog-theme";
+
+  window.blogTheme.getStoredTheme = function () {
+    try {
+      return localStorage.getItem(window.blogTheme.storageKey);
+    } catch (error) {
+      return null;
+    }
+  };
+
+  window.blogTheme.setStoredTheme = function (theme) {
+    try {
+      localStorage.setItem(window.blogTheme.storageKey, theme);
+    } catch (error) {
+      return;
+    }
+  };
+
+  window.blogTheme.prefersDark = function () {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  };
 
   window.blogTheme.resolve = function () {
-    var savedTheme = localStorage.getItem("blog-theme");
-    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var savedTheme = window.blogTheme.getStoredTheme();
 
-    return savedTheme || (prefersDark ? "dark" : "light");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      return savedTheme;
+    }
+
+    return window.blogTheme.prefersDark() ? "dark" : "light";
   };
 
   window.blogTheme.apply = function (theme) {
@@ -268,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
   button.addEventListener("click", function () {
     var nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     window.blogTheme.apply(nextTheme);
-    localStorage.setItem("blog-theme", nextTheme);
+    window.blogTheme.setStoredTheme(nextTheme);
     renderThemeToggle();
   });
 
