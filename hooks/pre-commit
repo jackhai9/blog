@@ -5,7 +5,7 @@
 # 项目根目录的相对路径
 PROJECT_ROOT=$(git rev-parse --show-toplevel)
 
-# 遍历每个已暂存的 Markdown 文件，只为 src/ 下的博客文章维护时间信息
+# 遍历每个已暂存的 Markdown 文件，只为首页和 src/ 下的博客文章维护时间信息
 IFS=$'\n'
 git diff --name-only --cached | grep '\.md$' | while read -r FILE; do
   # 去除文件路径中的双引号
@@ -13,7 +13,7 @@ git diff --name-only --cached | grep '\.md$' | while read -r FILE; do
   # 将转义字符转换回原始字符，以防git没有设置"git config --global core.quotepath false"
   DECODED_FILE=$(printf "%b" "$CLEANED_FILE")
   case "$DECODED_FILE" in
-    src/*.md|src/**/*.md)
+    index.md|src/*.md|src/**/*.md)
       "$PROJECT_ROOT/scripts/autoappend-time.sh" "$DECODED_FILE"
       git add "$DECODED_FILE"
       ;;

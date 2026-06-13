@@ -39,7 +39,7 @@
 bash scripts/setup-hooks.sh
 ```
 
-这个 hook 会在提交前更新文章的创建日期和最后更新日期。
+这个 hook 会在提交前更新根目录 `index.md` 和 `src/` 目录下文章的创建日期和最后更新日期。
 
 ## 旧博客
 

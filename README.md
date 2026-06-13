@@ -39,7 +39,7 @@ Optional local hook setup:
 bash scripts/setup-hooks.sh
 ```
 
-The hook updates article creation and last-updated metadata before commits.
+The hook updates article creation and last-updated metadata for `index.md` and Markdown posts under `src/` before commits.
 
 ## Legacy Blog
 

@@ -23,7 +23,7 @@
 2. 手动 -- 本地写Markdown文件并自行控制文件之间的组织关系（链接引用、图片、目录等使用相对路径）
 3. 手动 -- 提交Markdown文件到GitHub
 4. 自动 -- Github Pages 会自动执行其内置的[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
-5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交 Markdown 时会自动补写“本文创建日期 / 最后更新日期”
+5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交根目录 `index.md` 或 `src/` 目录下的文章 Markdown 时会自动补写“本文创建日期 / 最后更新日期”；README 和 docs 等项目文档不会处理
 
 ## 概念说明
 
