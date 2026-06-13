@@ -3,9 +3,20 @@
 
 <script>
 (function () {
-  var savedTheme = localStorage.getItem("blog-theme");
-  var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+  window.blogTheme = window.blogTheme || {};
+
+  window.blogTheme.resolve = function () {
+    var savedTheme = localStorage.getItem("blog-theme");
+    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    return savedTheme || (prefersDark ? "dark" : "light");
+  };
+
+  window.blogTheme.apply = function (theme) {
+    document.documentElement.dataset.theme = theme || window.blogTheme.resolve();
+  };
+
+  window.blogTheme.apply();
 })();
 </script>
 
@@ -256,8 +267,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("click", function () {
     var nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = nextTheme;
+    window.blogTheme.apply(nextTheme);
     localStorage.setItem("blog-theme", nextTheme);
+    renderThemeToggle();
+  });
+
+  window.addEventListener("pageshow", function () {
+    window.blogTheme.apply();
     renderThemeToggle();
   });
 
