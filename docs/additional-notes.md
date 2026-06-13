@@ -23,20 +23,7 @@
 2. 手动 -- 本地写Markdown文件并自行控制文件之间的组织关系（链接引用、图片、目录等使用相对路径）
 3. 手动 -- 提交Markdown文件到GitHub
 4. 自动 -- Github Pages 会自动执行其内置的[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
-5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交 Markdown 时会自动补写“本文创建日期 / 最后更新日期”
-
-### 提交项目文档时的 hook 说明
-
-执行 `bash scripts/setup-hooks.sh` 后，本地 `pre-commit` hook 会对本次 staged 的所有 `.md` 文件运行 `scripts/autoappend-time.sh`。这对博客文章是有用的，但如果只是在改 `README.md`、`README.zh-CN.md` 或 `docs/` 里的项目说明文档，普通 `git commit` 也会自动追加“本文创建日期 / 最后更新日期”。
-
-只提交项目文档、且不希望追加文章时间块时，可以绕过本地 commit hook：
-
-```bash
-git add README.md README.zh-CN.md docs/additional-notes.md
-git commit --no-verify -m "Update project documentation"
-```
-
-`--no-verify` 的作用是跳过本地 commit hook。不要把它当成默认提交方式；写博客文章时仍然用普通 `git commit`，让 hook 自动维护文章日期。
+5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交根目录 `index.md` 或 `src/` 目录下的文章 Markdown 时会自动补写“本文创建日期 / 最后更新日期”；README 和 docs 等项目文档不会处理
 
 ## 概念说明
 

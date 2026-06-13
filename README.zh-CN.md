@@ -39,8 +39,7 @@
 bash scripts/setup-hooks.sh
 ```
 
-这个 hook 会在提交前更新文章的创建日期和最后更新日期。
-如果只提交 README 或 docs 这类项目文档，先看 [`docs/additional-notes.md`](docs/additional-notes.md#提交项目文档时的-hook-说明) 里的说明。
+这个 hook 会在提交前更新根目录 `index.md` 和 `src/` 目录下文章的创建日期和最后更新日期。
 
 ## 旧博客
 
