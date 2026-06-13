@@ -22,7 +22,7 @@
 - `_config.yml` 配置 GitHub Pages/Jekyll 站点元数据。
 - `_layouts/default.html` 覆盖默认 Primer 布局，并移除由许可证触发的默认页脚。
 - `_includes/head-custom.html` 自定义生成页面的 HTML head。
-- `docs/补充说明.md` 保存 GitHub Pages 设置相关的中文补充说明。
+- `docs/additional-notes.md` 保存项目相关的中文补充说明。
 - `scripts/` 存放文章元数据和迁移相关的本地维护脚本。
 - `hooks/` 存放由 `scripts/setup-hooks.sh` 安装的 Git hook 模板。
 
