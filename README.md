@@ -22,6 +22,7 @@ Live site: [jackhai9.github.io/blog](https://jackhai9.github.io/blog/)
 - `_config.yml` configures the GitHub Pages/Jekyll site metadata.
 - `_layouts/default.html` overrides the default Primer layout and removes the license-triggered footer.
 - `_includes/head-custom.html` customizes the generated HTML head.
+- `docs/补充说明.md` keeps the Chinese GitHub Pages setup notes.
 - `scripts/` contains local maintenance helpers for post metadata and migration.
 - `hooks/` contains Git hook templates used by `scripts/setup-hooks.sh`.
 
