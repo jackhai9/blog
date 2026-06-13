@@ -1,126 +1,65 @@
-# 项目补充说明
+# 补充说明
 
-这份文档补充说明这个博客仓库的设计取舍、发布方式和常见配置。主 README 保持简洁，这里保留更偏背景和操作细节的内容。
+这份文档保留旧版中文 README 中较详细的说明内容，用作补充材料。主入口仍然是根目录的 `README.md` 和 `README.zh-CN.md`。
 
-## 项目定位
+## 基于 Markdown + GitHub Pages
 
-这个仓库是一个尽量简单的 Markdown 博客：
+完全以 Markdown 文件的形式来书写和组织博客。**现在要做的只是写 Markdown**，以前的[这种方式](https://github.com/jackhai9/jackhai9.github.io)就有点复杂了。
 
-- 文章直接写成 Markdown 文件。
-- 首页使用根目录的 `index.md`。
-- 文章和归档内容主要放在 `src/`。
-- 图片、文章链接和目录结构尽量贴近源文件。
-- 不维护复杂博客框架，避免把写作流程变重。
+## 项目说明
 
-日常写作通常只需要编辑 Markdown、提交变更，然后让 GitHub Pages 自动发布。
+- **[这里](https://jackhai9.github.io/blog/)就是通过此方式创建的博客。**
+- 仓库名可以任意起。
+- 只有一个main分支，用于存放 Markdown 文件。当然可以使用其他分支。
+- 手动开启这个仓库的 Github Pages 功能：Settings --> Pages --> 选择分支名并保存。
 
-## 仓库结构补充
+- GitHub Pages 会优先把仓库根目录的 index.html 或 index.md 作为首页，如果没有这两个，就会以 README.md 作为首页。
 
-当前主要文件和目录的作用：
+  > 如果根目录下没有 index.html 文件，GitHub Pages 使用默认的 [Jekyll](https://github.com/jekyll/jekyll) 这样的静态站点生成器，把 index.md 或者 README.md 这样的 Markdown 文件转成 HTML ，用于浏览器渲染和显示。截止目前2024年1月，Markdown 文件还不是浏览器原生支持渲染的格式。
 
-- `index.md`：博客首页入口。
-- `src/`：文章 Markdown 文件。
-- `src/legacy/`：从旧博客迁移过来的历史文章。
-- `src/image/`：本仓库内保存的图片资源。
-- `_config.yml`：Jekyll/GitHub Pages 站点元数据，例如标题、描述、语言。
-- `_includes/head-custom.html`：注入 favicon、夜间模式样式和脚本。
-- `_layouts/default.html`：覆盖默认 Primer layout，保留主体结构，同时移除许可证触发的默认页脚。
-- `scripts/`：本地维护脚本，包括文章日期处理和旧博客迁移辅助脚本。
-- `hooks/`：Git hook 模板，配合 `scripts/setup-hooks.sh` 使用。
+## 整体流程
 
-## 发布方式
+1. 手动 -- 克隆仓库
+2. 手动 -- 本地写Markdown文件并自行控制文件之间的组织关系（链接引用、图片、目录等使用相对路径）
+3. 手动 -- 提交Markdown文件到GitHub
+4. 自动 -- Github Pages 会自动执行其内置的[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
+5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交 Markdown 时会自动补写“本文创建日期 / 最后更新日期”
 
-这个仓库通过 GitHub Pages 发布：
+## 概念说明
 
-1. 本地创建或编辑 Markdown 文件。
-2. 使用相对链接组织本地文章和图片。
-3. 提交变更并通过 PR 合并到 `main`。
-4. GitHub Pages 自动构建并发布站点。
-5. 构建完成后，线上站点更新到 <https://jackhai9.github.io/blog/>。
+- [Markdown](https://daringfireball.net/projects/markdown/)：一种易写易读的标记语言，通过解析器转为 XHTML (or HTML)。语法因不同的解析器或编辑器而异。
+- [GitHub Actions](https://docs.github.com/en/actions)：GitHub 提供的一种自动化工具，用于执行 workflow。
+- [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows)：工作流，即 按希望的顺序排列组合一系列指令（action）。这些指令可以是各种任务，如安装依赖、测试代码、部署应用等。
+- [GitHub Pages](https://pages.github.com/)：GitHub 提供的一项服务，从 GitHub 仓库直接托管静态网站。常用于个人、项目或组织的网站，并且是免费的，不用再单独去申请域名，当然也支持指向你已申请的域名。很适合用来托管博客、项目文档、个人简历等。GitHub Pages 也默认使用 [Jekyll](https://github.com/jekyll/jekyll) 这样的静态站点生成器，直接把 Markdown 转成 HTML，见[我的另一个博客](https://github.com/jackhai9/blog)。在部署时会用到 GitHub Actions 提供的自动化构建和部署流程。总之，GitHub Pages为用户提供了一种简单便捷的方式，用于将代码和文档以网页的形式分享给他人。
 
-如果线上没有立刻变化，优先检查仓库 `Actions` 页面里的 `pages build and deployment` 工作流是否完成。
+## 其他说明
 
-## GitHub Pages 设置
+- **后续写博客只需要执行2、3就可以了。**
 
-GitHub Pages 通常需要在仓库页面手动开启：
+- Markdown编辑器：推荐Typora。
 
-1. 打开仓库的 `Settings`。
-2. 进入 `Pages`。
-3. 选择发布分支和目录。
-4. 保存设置。
+#### 配置SSH
 
-这个仓库的发布目标是 `main` 分支，合并后由 GitHub Pages 自动完成构建和部署。
+通过SSH与GitHub进行免密交互，无需每次访问都使用用户名和密码，设置方式：
 
-## 首页文件优先级
+[检查本地现有的SSH密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)、[生成本地新的SSH密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)、[添加本地SSH密钥到GitHub账户](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)。
 
-GitHub Pages 会优先使用仓库根目录的 `index.html` 或 `index.md` 作为首页。
+#### 添加favicon
 
-如果没有这些文件，GitHub Pages 才会尝试使用 `README.md` 作为首页内容。
+默认是没有favicon的，如果需要添加：
 
-这个仓库显式使用 `index.md` 作为博客首页，所以 README 只作为仓库说明文档。
-
-## Markdown 与 Jekyll
-
-浏览器不会直接把 Markdown 当成网页渲染。GitHub Pages 会使用 Jekyll 这样的静态站点生成器，把 Markdown 转成 HTML，再交给浏览器显示。
-
-本仓库没有引入完整自定义主题，只在必要位置覆盖默认行为：
-
-- `_config.yml` 控制站点元数据。
-- `_includes/head-custom.html` 处理 head 内的自定义资源和夜间模式。
-- `_layouts/default.html` 覆盖默认页面骨架，去掉不需要的默认页脚。
-
-## GitHub Actions 与部署
-
-GitHub Pages 的构建和部署由 GitHub 自动执行。提交合并到发布分支后，可以在仓库的 `Actions` 页面看到 `pages build and deployment` 工作流。
-
-这个工作流大致做几件事：
-
-1. 拉取仓库内容。
-2. 用 Jekyll 构建静态页面。
-3. 上传构建产物。
-4. 部署到 GitHub Pages。
-
-如果构建失败，先看 Actions 日志；如果构建成功但线上页面没变，通常是浏览器缓存或 Pages 部署延迟。
-
-## 本地写作辅助
-
-本仓库提供一个可选的 Git hook，用来在提交 Markdown 文件前补写或更新文章日期：
-
-- `本文创建日期`
-- `最后更新日期`
-
-安装方式：
-
-```bash
-bash scripts/setup-hooks.sh
-```
-
-这个 hook 适合文章文件。修改 README 或 docs 这类仓库说明文档时，如果不希望自动追加文章日期，可以在确认变更后使用 `git commit --no-verify`。
-
-## SSH 配置
-
-如果希望通过 SSH 和 GitHub 免密交互，可以参考 GitHub 官方文档：
-
-- [检查本地现有的 SSH 密钥](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-- [生成新的 SSH 密钥并添加到 ssh-agent](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [添加本地 SSH 密钥到 GitHub 账户](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
-## favicon
-
-favicon 文件放在仓库根目录，当前文件是 `favicon.ico`。
-
-Jekyll 页面里引用站点资源时，优先使用 `relative_url`，这样仓库名或 Pages 路径变化时不用手动改路径：
+1. 把你的favicon.ico放在根目录下，也就是跟index.md同一级目录。
+2. 新建_includes/head-custom.html，内容如下：
 
 ```html
 <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 ```
 
-## 站点标题与描述
+#### 修改默认博客名
 
-Jekyll 默认可能使用仓库名作为站点名。如果要自定义站点标题和描述，可以在 `_config.yml` 中设置：
+Jekyll 默认用仓库名作为博客名。如果不想使用默认的，则在根目录下创建`_config.yml`填入title即可，内容如下：
 
 ```yaml
-title: 站点标题
-description: 站点描述
-lang: zh-CN
+title: 你的博客名
+description: 你的博客描述
 ```
