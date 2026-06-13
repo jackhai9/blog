@@ -25,16 +25,6 @@
 4. 自动 -- Github Pages 会自动执行其内置的[workflow](https://github.com/jackhai9/blog/actions/workflows/pages/pages-build-deployment)最终部署到GitHub Pages
 5. 附加功能：执行 `bash scripts/setup-hooks.sh` 安装 git hooks，提交 Markdown 时会自动补写“本文创建日期 / 最后更新日期”
 
-### GitHub Pages workflow 提醒
-
-这个仓库当前没有自定义 `.github/workflows`，部署使用的是 GitHub Pages 内置的 `pages-build-deployment` workflow。
-
-如果 Actions 里出现 `Node.js 20 actions are deprecated` 这类 annotation，通常不是博客内容或 Jekyll 构建失败，而是 GitHub Actions 正在把 JavaScript action 的运行时从 Node.js 20 迁移到 Node.js 24。只要 Pages run 的最终状态是 `success`，这类 annotation 可以先不用处理。
-
-这个问题不能在当前仓库里通过“修改 action 版本号”直接解决，因为当前仓库没有可修改的 workflow YAML。理论上可以改成自定义 Pages workflow，并在里面手动指定新版 `actions/checkout`、`actions/upload-pages-artifact`、`actions/deploy-pages` 等版本；但这会让项目复杂不少。除非内置 Pages workflow 真的失败，否则这里保持 GitHub Pages 内置 workflow 更符合这个项目“简单写 Markdown”的目标。
-
-参考：GitHub Changelog - [Deprecation of Node 20 on GitHub Actions runners](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/)。
-
 ### 提交项目文档时的 hook 说明
 
 执行 `bash scripts/setup-hooks.sh` 后，本地 `pre-commit` hook 会对本次 staged 的所有 `.md` 文件运行 `scripts/autoappend-time.sh`。这对博客文章是有用的，但如果只是在改 `README.md`、`README.zh-CN.md` 或 `docs/` 里的项目说明文档，普通 `git commit` 也会自动追加“本文创建日期 / 最后更新日期”。
