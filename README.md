@@ -21,7 +21,7 @@ Live site: [jackhai9.github.io/blog](https://jackhai9.github.io/blog/)
 - `src/` stores article Markdown files.
 - `_config.yml` configures the GitHub Pages/Jekyll site metadata.
 - `_layouts/default.html` overrides the default Primer layout and removes the license-triggered footer.
-- `_includes/head-custom.html` customizes the generated HTML head.
+- `_includes/head-custom.html` customizes the generated HTML head, including the favicon and dark mode toggle.
 - `docs/additional-notes.md` keeps additional project notes in Chinese.
 - `scripts/` contains local maintenance helpers for post metadata and migration.
 - `hooks/` contains Git hook templates used by `scripts/setup-hooks.sh`.
