@@ -55,6 +55,15 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 ```
 
+#### 夜间模式
+
+当前博客在 `_includes/head-custom.html` 中实现了夜间模式：
+
+- 默认跟随系统的 `prefers-color-scheme`。
+- 右上角按钮可以手动切换日间/夜间模式。
+- 手动选择会保存在浏览器 `localStorage` 中。
+- 页面从浏览器返回缓存恢复时，会重新同步已保存的主题偏好。
+
 #### 修改默认博客名
 
 Jekyll 默认用仓库名作为博客名。如果不想使用默认的，则在根目录下创建`_config.yml`填入title即可，内容如下：
