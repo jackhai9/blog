@@ -48,15 +48,7 @@
 2. 新建_includes/head-custom.html，内容如下：把其中的"blog"替换成你自己的仓库名
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico">
-</head>
-<body>
-    
-</body>
-</html>
+<link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico">
 ```
 
 #### 修改默认博客名
@@ -76,4 +68,4 @@ description: 你的博客描述
 
 > 本文创建日期: 2024-01-28
 >
-> 最后更新日期: 2026-04-18
+> 最后更新日期: 2026-06-13
